@@ -56,7 +56,7 @@ async def post_webhook(message: Message):
 
     match = TITLE_REGEX.match(content[0])
 
-    description = [{'type': 'text', 'value': line[2:] if line[0] == '-' else line} for line in content[1:]]
+    description = [{'type': 'text', 'value': line.strip()[2:] if line.strip()[0] == '-' else line.strip()} for line in content[1:]]
 
     data = {
         "blocks": [
